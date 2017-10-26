@@ -1,0 +1,19 @@
+<h1>blah blah</h1>
+<form action="<%= users_url %>" method="post">
+  <!-- <input type="hidden" name="_method" value="<%#= method %>"> -->
+
+  <label for="user_name">User_name</label>
+  <input
+    type="text"
+    name="user[user_name]"
+    id="user_name">
+    <br>
+  <label for="password">Password</label>
+  <input
+    type="password"
+    name="user[password]"
+    id="password">
+    <br>
+
+  <input type="submit" value="submit">
+</form>

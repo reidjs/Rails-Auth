@@ -1,16 +1,17 @@
 class ApplicationController < ActionController::Base
-  # protect_from_forgery with: :exception
+  protect_from_forgery with: :exception
   helper_method :current_user
   helper_method :logged_in?
   def require_logged_out
     if logged_in?
-      redirect_to new_sessions_url
+      # p "error"
+      redirect_to cats_url
     end
   end
 
   def require_logged_in
     if !logged_in?
-      redirect_to cats_url
+      redirect_to new_sessions_url
     end
   end
 
@@ -33,5 +34,8 @@ class ApplicationController < ActionController::Base
     session[:session_token] = nil
   end
 
+  def login_user!(user_name, password)
+
+  end
 
 end

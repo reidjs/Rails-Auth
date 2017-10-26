@@ -1,6 +1,6 @@
 <h1>blah blah</h1>
 <form action="<%= users_url %>" method="post">
-  <!-- <input type="hidden" name="_method" value="<%#= method %>"> -->
+  <input type="hidden" name="authenticity_token" value=" <%= form_authenticity_token %> ">
 
   <label for="user_name">User_name</label>
   <input

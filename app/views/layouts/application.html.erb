@@ -13,6 +13,7 @@
       <%= current_user.user_name %>
       <form  action= "<%= sessions_url %>" method="post">
           <input type="hidden" name="_method" value="DELETE">
+  <input type="hidden" name="authenticity_token" value=" <%= form_authenticity_token %> ">
           <input type="submit" value="logout">
       </form>
     <% else %>

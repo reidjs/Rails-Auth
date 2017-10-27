@@ -17,7 +17,11 @@
           <input type="submit" value="logout">
       </form>
     <% else %>
-      <p> no one logged in </p>
+    <form  action= "<%= new_sessions_url %>" method="get">
+<input type="hidden" name="authenticity_token" value=" <%= form_authenticity_token %> ">
+        <input type="submit" value="login">
+    </form>
+
     <% end %>
     <%= yield %>
   </body>

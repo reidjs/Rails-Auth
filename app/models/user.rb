@@ -23,6 +23,11 @@ class User < ApplicationRecord
   foreign_key: :user_id,
   class_name: :Cat
 
+  has_many :cat_rental_requests,
+  primary_key: :id,
+  foreign_key: :user_id,
+  class_name: :CatRentalRequest
+
   attr_reader :password
   def reset_session_token!
     self.session_token = SecureRandom::urlsafe_base64
@@ -43,7 +48,7 @@ class User < ApplicationRecord
   def self.find_by_credentials(user_name, password)
     user = User.find_by(user_name: user_name)
     return nil if user.nil?
-    user.is_password?(password) ? user : "Wrong password"
+    user.is_password?(password) ? user : nil
   end
 
   def ensure_session_token
